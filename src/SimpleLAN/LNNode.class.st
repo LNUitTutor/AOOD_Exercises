@@ -21,6 +21,13 @@ LNNode >> hasNextNode [
 	^self nextNode notNil
 ]
 
+{ #category : #initialization }
+LNNode >> initialize [
+
+	super initialize.
+	self name: #Unnamed
+]
+
 { #category : #accessing }
 LNNode >> name [
 
@@ -43,6 +50,17 @@ LNNode >> nextNode [
 LNNode >> nextNode: aLNNode [
 
 	nextNode := aLNNode
+]
+
+{ #category : #printing }
+LNNode >> printOn: aStream [
+
+	aStream
+		nextPutAll: self name;
+		nextPutAll: ' -> '.
+	nextNode
+		ifNil: [ aStream nextPutAll: '/' ]
+		ifNotNil: [ aStream nextPutAll: nextNode name ]
 ]
 
 { #category : #'send-receive' }
