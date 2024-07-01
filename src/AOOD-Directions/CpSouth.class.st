@@ -10,6 +10,12 @@ CpSouth >> * aPoint [
 	^ aPoint + (0 @ 1)
 ]
 
+{ #category : #calculating }
+CpSouth >> in: anInteger from: aPoint [
+
+	^ aPoint + (0 @ anInteger)
+]
+
 { #category : #printing }
 CpSouth >> printOn: aStream [
 

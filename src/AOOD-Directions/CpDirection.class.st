@@ -33,3 +33,9 @@ CpDirection >> * aPoint [
 
 	self subclassResponsibility
 ]
+
+{ #category : #calculating }
+CpDirection >> in: anInteger from: aPoint [
+
+	^ self subclassResponsibility
+]

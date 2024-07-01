@@ -10,6 +10,12 @@ CpNorth >> * aPoint [
 	^ aPoint - (0 @ 1)
 ]
 
+{ #category : #calculating }
+CpNorth >> in: anInteger from: aPoint [
+
+	^ aPoint - (0 @ anInteger)
+]
+
 { #category : #printing }
 CpNorth >> printOn: aStream [
 

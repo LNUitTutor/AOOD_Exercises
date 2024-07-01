@@ -10,6 +10,11 @@ CpWest >> * aPoint [
 	^ aPoint - (1 @ 0)
 ]
 
+{ #category : #calculating }
+CpWest >> in: anInteger from: aPoint [ 
+	^ aPoint - (anInteger @ 0)
+]
+
 { #category : #printing }
 CpWest >> printOn: aStream [
 
