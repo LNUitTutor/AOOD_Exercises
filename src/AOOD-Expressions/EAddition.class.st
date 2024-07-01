@@ -5,8 +5,10 @@ Class {
 }
 
 { #category : #'public access' }
-EAddition >> evaluate [
-	^ left evaluate + right evaluate
+EAddition >> evaluateWith: aDictionary [
+
+	^ (left evaluateWith: aDictionary)
+	  + (right evaluateWith: aDictionary)
 ]
 
 { #category : #printing }

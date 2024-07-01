@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #'public access' }
-EExpression >> evaluate [
+EExpression >> evaluateWith: anObject [
 
 	^ self subclassResponsibility
 ]

@@ -11,9 +11,9 @@ EMultiplicationTest >> testEvaluate [
 	ep1 := EConstant new value: 5.
 	ep2 := EConstant new value: 3.
 	self
-		assert: (EMultiplication new
-				 right: ep1;
-				 left: ep2) evaluate
+		assert: ((EMultiplication new
+				  right: ep1;
+				  left: ep2) evaluateWith: Dictionary new)
 		equals: 15
 ]
 
@@ -24,9 +24,9 @@ EMultiplicationTest >> testEvaluateWithClassCreationMessage [
 	ep1 := EConstant new value: 5.
 	ep2 := EConstant new value: 3.
 	self
-		assert: (EMultiplication new
-				 left: ep1;
-				 right: ep2) evaluate
+		assert: ((EMultiplication new
+				  left: ep1;
+				  right: ep2) evaluateWith: Dictionary new)
 		equals: 15
 ]
 
@@ -37,9 +37,9 @@ EMultiplicationTest >> testNegated [
 	ep1 := EConstant new value: 5.
 	ep2 := EConstant new value: 3.
 	self
-		assert: (EMultiplication new
-				 right: ep1;
-				 left: ep2) negated evaluate
+		assert: ((EMultiplication new
+				  right: ep1;
+				  left: ep2) negated evaluateWith: Dictionary new)
 		equals: -15
 ]
 

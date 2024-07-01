@@ -14,9 +14,9 @@ ENegation class >> expression: anExpression [
 ]
 
 { #category : #'public access' }
-ENegation >> evaluate [
+ENegation >> evaluateWith: aDictionary [
 
-	^ expression evaluate negated
+	^ (expression evaluateWith: aDictionary) negated
 ]
 
 { #category : #accessing }
