@@ -1,7 +1,7 @@
 Class {
 	#name : #LNWorkstation,
 	#superclass : #LNNode,
-	#category : #SimpleLAN
+	#category : #'AOOD-SimpleLAN'
 }
 
 { #category : #'send-receive' }

@@ -5,7 +5,7 @@ Class {
 		'name',
 		'nextNode'
 	],
-	#category : #SimpleLAN
+	#category : #'AOOD-SimpleLAN'
 }
 
 { #category : #'as yet unclassified' }

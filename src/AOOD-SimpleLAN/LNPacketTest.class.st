@@ -1,7 +1,7 @@
 Class {
 	#name : #LNPacketTest,
 	#superclass : #TestCase,
-	#category : #SimpleLAN
+	#category : #'AOOD-SimpleLAN'
 }
 
 { #category : #tests }

@@ -6,7 +6,7 @@ Class {
 		'addresseeName',
 		'originatorName'
 	],
-	#category : #SimpleLAN
+	#category : #'AOOD-SimpleLAN'
 }
 
 { #category : #accessing }
