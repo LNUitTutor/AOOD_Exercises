@@ -18,6 +18,15 @@ EAdditionTest >> testEvaluate [
 ]
 
 { #category : #tests }
+EAdditionTest >> testEvaluateWithClassCreationMessage [
+
+	| ep1 ep2 |
+	ep1 := EConstant value: 5.
+	ep2 := EConstant value: 3.
+	self assert: (EAddition left: ep1 right: ep2) evaluate equals: 8
+]
+
+{ #category : #tests }
 EAdditionTest >> testEvaluateWithNegation [
 
 	| ep1 ep2 |
@@ -41,4 +50,19 @@ EAdditionTest >> testNegated [
 				 right: ep1;
 				 left: ep2) negated evaluate
 		equals: -8
+]
+
+{ #category : #tests }
+EAdditionTest >> testPrinting [
+
+	self
+		assert:
+			(EAddition left: EConstant constant5 right: (EConstant value: 3))
+				printString
+		equals: '( 5 + 3 )'.
+	self
+		assert:
+			(EAddition left: EConstant constant5 right: (EConstant value: 3))
+				negated printString
+		equals: '- ( 5 + 3 )'
 ]

@@ -8,6 +8,15 @@ Class {
 	#category : #'AOOD-Expressions'
 }
 
+{ #category : #'instance creation' }
+EMultiplication class >> left: anInteger right: anInteger2 [
+
+	^ self new
+		  left: anInteger;
+		  right: anInteger2;
+		  yourself
+]
+
 { #category : #'public access' }
 EMultiplication >> evaluate [
 	^ left evaluate * right evaluate
@@ -16,6 +25,16 @@ EMultiplication >> evaluate [
 { #category : #accessing }
 EMultiplication >> left: anEConstant [ 
 	left := anEConstant
+]
+
+{ #category : #printing }
+EMultiplication >> printOn: aStream [
+
+	aStream nextPutAll: '( '.
+	left printOn: aStream.
+	aStream nextPutAll: ' * '.
+	right printOn: aStream.
+	aStream nextPutAll: ' )'
 ]
 
 { #category : #accessing }
