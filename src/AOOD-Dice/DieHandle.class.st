@@ -10,8 +10,8 @@ Class {
 { #category : #arithmetic }
 DieHandle >> + aDieHandle [ 
 	| newDh |
-	newDh := DieHandle new.
-	dice do: [ :each | newDh addDie: each ].
+	newDh := self class new.
+	self dice do: [ :each | newDh addDie: each ].
 	aDieHandle dice do: [ :each | newDh addDie: each ].
 	^ newDh 
 ]
@@ -36,6 +36,12 @@ DieHandle >> initialize [
 
 	super initialize.
 	dice := OrderedCollection new
+]
+
+{ #category : #accessing }
+DieHandle >> maxValue [
+
+	^ dice inject: 0 into: [ :s :d | s + d faces ]
 ]
 
 { #category : #action }
