@@ -4,6 +4,12 @@ Class {
 	#category : #'AOOD-Expressions'
 }
 
+{ #category : #'public access' }
+EExpression >> evaluate [
+
+	^ self subclassResponsibility
+]
+
 { #category : #arithmetic }
 EExpression >> negated [
 	^ ENegation new expression: self

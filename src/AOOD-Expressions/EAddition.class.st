@@ -10,11 +10,7 @@ EAddition >> evaluate [
 ]
 
 { #category : #printing }
-EAddition >> printOn: aStream [
+EAddition >> operatorString [
 
-	aStream nextPutAll: '( '.
-	left printOn: aStream.
-	aStream nextPutAll: ' + '.
-	right printOn: aStream.
-	aStream nextPutAll: ' )'
+	^ ' + '
 ]

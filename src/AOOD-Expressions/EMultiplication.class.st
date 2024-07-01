@@ -10,11 +10,7 @@ EMultiplication >> evaluate [
 ]
 
 { #category : #printing }
-EMultiplication >> printOn: aStream [
+EMultiplication >> operatorString [
 
-	aStream nextPutAll: '( '.
-	left printOn: aStream.
-	aStream nextPutAll: ' * '.
-	right printOn: aStream.
-	aStream nextPutAll: ' )'
+	^ ' * '
 ]
