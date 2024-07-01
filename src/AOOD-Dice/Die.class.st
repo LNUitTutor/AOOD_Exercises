@@ -34,6 +34,15 @@ Die >> initialize [
 	self faces: 6
 ]
 
+{ #category : #printing }
+Die >> printOn: aStream [
+
+	super printOn: aStream.
+	aStream nextPut: $(.
+	faces printOn: aStream.
+	aStream nextPut: $)
+]
+
 { #category : #action }
 Die >> roll [
 
