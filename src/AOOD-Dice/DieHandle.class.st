@@ -7,6 +7,15 @@ Class {
 	#category : #'AOOD-Dice'
 }
 
+{ #category : #'as yet unclassified' }
+DieHandle class >> showRoll [
+
+	<script>
+	Transcript
+		show: (2 D6 + 2 D4 + 1 D10) roll;
+		cr
+]
+
 { #category : #arithmetic }
 DieHandle >> + aDieHandle [ 
 	| newDh |
