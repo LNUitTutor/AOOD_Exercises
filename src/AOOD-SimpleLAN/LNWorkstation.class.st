@@ -7,7 +7,7 @@ Class {
 { #category : #'send-receive' }
 LNWorkstation >> accept: aPacket [
 
-	aPacket addresseeName == self name
+	(aPacket isAddressedTo: self)
 		ifTrue: [
 			self name trace.
 			' accepted a packet' traceCr ]

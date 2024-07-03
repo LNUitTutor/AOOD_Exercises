@@ -7,7 +7,9 @@ Class {
 { #category : #'send-receive' }
 LNPrinter >> accept: aPacket [
 
-	aPacket addresseeName == self name
-		ifTrue: [ aPacket contents traceCr ]
+	(aPacket isAddressedTo: self)
+		ifTrue: [
+			('Node ' , aPacket originatorName , ' sent to printer: '
+			, aPacket contents) traceCr ]
 		ifFalse: [ super accept: aPacket ]
 ]
