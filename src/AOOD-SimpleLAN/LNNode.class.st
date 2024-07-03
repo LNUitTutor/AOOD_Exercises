@@ -42,7 +42,10 @@ LNNode >> accept: aPacket [
 	"Having received aPacket, send it on. This is the default
 behavior. My subclasses may override me to do something special."
 
-	self send: aPacket
+	"self send: aPacket"
+	(aPacket isAddressedTo: self)
+		ifTrue: [ self treatPacket: aPacket ]
+		ifFalse: [ self send: aPacket ]
 ]
 
 { #category : #testing }
@@ -100,4 +103,10 @@ LNNode >> send: aPacket [
 		' sends a packet to: ' trace.
 		nextNode name traceCr.
 		nextNode accept: aPacket ]
+]
+
+{ #category : #'send-receive' }
+LNNode >> treatPacket: aPacket [
+
+	^ self subclassResponsibility
 ]

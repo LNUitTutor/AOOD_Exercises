@@ -5,11 +5,8 @@ Class {
 }
 
 { #category : #'send-receive' }
-LNPrinter >> accept: aPacket [
+LNPrinter >> treatPacket: aPacket [
 
-	(aPacket isAddressedTo: self)
-		ifTrue: [
-			('Node ' , aPacket originatorName , ' sent to printer: '
-			, aPacket contents) traceCr ]
-		ifFalse: [ super accept: aPacket ]
+	('Node ' , aPacket originatorName , ' sent to printer: '
+	 , aPacket contents) traceCr
 ]
