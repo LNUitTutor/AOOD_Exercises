@@ -37,6 +37,42 @@ LNNode class >> simpleLan [
 	mac emit: packet
 ]
 
+{ #category : #'as yet unclassified' }
+LNNode class >> starLan [
+
+	<script>
+	| mac pc node1 node2 node3 printer star packet |
+	"create the nodes, workstations and printers"
+	mac := LNWorkstation new name: #Mac.
+	pc := LNWorkstation new name: #PC.
+	node1 := LNNode new name: #Node1.
+	node2 := LNNode new name: #Node2.
+	node3 := LNNode new name: #Node3.
+	printer := LNPrinter new name: #Printer.
+	star := LNStar new name: #CrossNode.
+
+	"connect the different LNNodes."
+	mac nextNode: node1.
+	node1 nextNode: star.
+	star
+		add: pc;
+		add: node2;
+		add: node3.
+	node2 nextNode: printer.
+	printer nextNode: mac.
+	pc nextNode: (LNWorkstation new
+			 name: #Work;
+			 nextNode: printer).
+
+	"create a LNPacket and start simulation"
+	packet := LNPacket new
+		          addresseeName: 'IGPrinter';
+		          contents:
+			          'This bulk message propagated across the net to the printer'.
+
+	mac emit: packet
+]
+
 { #category : #'send-receive' }
 LNNode >> accept: aPacket [
 	"Having received aPacket, send it on. This is the default
@@ -58,7 +94,13 @@ LNNode >> initialize [
 
 	super initialize.
 	self name: #Unnamed.
-	self nextNode: LNPlug new
+	self initializeNextnode
+]
+
+{ #category : #initialization }
+LNNode >> initializeNextnode [
+
+	nextNode := LNPlug new
 ]
 
 { #category : #accessing }
