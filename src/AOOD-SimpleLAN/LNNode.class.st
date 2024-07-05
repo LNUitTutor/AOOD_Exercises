@@ -66,7 +66,43 @@ LNNode class >> starLan [
 
 	"create a LNPacket and start simulation"
 	packet := LNPacket new
-		          addresseeName: 'IGPrinter';
+		          addresseeName: #Printer;
+		          contents:
+			          'This bulk message propagated across the net to the printer'.
+
+	mac emit: packet
+]
+
+{ #category : #'as yet unclassified' }
+LNNode class >> starLanWithUnknown [
+
+	<script>
+	| mac pc node1 node2 node3 printer star packet |
+	"create the nodes, workstations and printers"
+	mac := LNWorkstation new name: #Mac.
+	pc := LNWorkstation new name: #PC.
+	node1 := LNNode new name: #Node1.
+	node2 := LNNode new name: #Node2.
+	node3 := LNNode new name: #Node3.
+	printer := LNPrinter new name: #Printer.
+	star := LNStar new name: #CrossNode.
+
+	"connect the different LNNodes."
+	mac nextNode: node1.
+	node1 nextNode: star.
+	star
+		add: pc;
+		add: node2;
+		add: node3.
+	node2 nextNode: printer.
+	printer nextNode: mac.
+	pc nextNode: (LNWorkstation new
+			 name: #Work;
+			 nextNode: printer).
+
+	"create a LNPacket and start simulation"
+	packet := LNPacket new
+		          addresseeName: #PrinterLab;
 		          contents:
 			          'This bulk message propagated across the net to the printer'.
 
@@ -143,6 +179,7 @@ LNNode >> printOn: aStream [
 LNNode >> send: aPacket [
 
 	self hasNextNode ifFalse: [ ^ self ].
+   aPacket originatorName == nextNode name ifTrue: [ ^ self ].
 	self name trace.
 	' sends a packet to: ' trace.
 	nextNode name traceCr.
