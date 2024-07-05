@@ -17,8 +17,8 @@ LNPacketTest >> testInitialized [
 { #category : #tests }
 LNPacketTest >> testIsAddressedTo [
 
-	^ (LNPacket new addresseeName: #Mac) isAddressedTo:
-		  (LNNode new name: #Mac)
+	self assert: ((LNPacket new addresseeName: #Mac) isAddressedTo:
+			 (LNNode new name: #Mac))
 ]
 
 { #category : #tests }

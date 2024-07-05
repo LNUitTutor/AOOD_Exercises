@@ -57,7 +57,8 @@ LNNode >> hasNextNode [
 LNNode >> initialize [
 
 	super initialize.
-	self name: #Unnamed
+	self name: #Unnamed.
+	self nextNode: LNPlug new
 ]
 
 { #category : #accessing }
@@ -89,20 +90,21 @@ LNNode >> printOn: aStream [
 
 	aStream
 		nextPutAll: self name;
-		nextPutAll: ' -> '.
-	nextNode
+		nextPutAll: ' -> ';
+		nextPutAll: nextNode name.
+	"nextNode
 		ifNil: [ aStream nextPutAll: '/' ]
-		ifNotNil: [ aStream nextPutAll: nextNode name ]
+		ifNotNil: [ aStream nextPutAll: nextNode name ]"
 ]
 
 { #category : #'send-receive' }
 LNNode >> send: aPacket [
 
-	nextNode ifNotNil: [
-		self name trace.
-		' sends a packet to: ' trace.
-		nextNode name traceCr.
-		nextNode accept: aPacket ]
+	self hasNextNode ifFalse: [ ^ self ].
+	self name trace.
+	' sends a packet to: ' trace.
+	nextNode name traceCr.
+	nextNode accept: aPacket
 ]
 
 { #category : #'send-receive' }

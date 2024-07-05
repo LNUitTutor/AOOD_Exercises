@@ -7,7 +7,9 @@ Class {
 { #category : #tests }
 LNNodeTest >> testHasNextNode [
 
-	self deny: LNNode new hasNextNode
+	"self deny: LNNode new hasNextNode"
+	self assert: LNNode new hasNextNode.
+	self assert: (LNNode new nextNode isMemberOf: LNPlug)
 ]
 
 { #category : #tests }
@@ -20,9 +22,24 @@ LNNodeTest >> testName [
 ]
 
 { #category : #tests }
+LNNodeTest >> testPlugNodeCreated [
+
+	| plug |
+	plug := LNPlug new.
+	self assert: plug name equals: '/'.
+	self deny: plug hasNextNode
+]
+
+{ #category : #tests }
 LNNodeTest >> testPrintingJustInitializedNode [
 
 	self assert: LNNode new printString equals: 'Unnamed -> /'
+]
+
+{ #category : #tests }
+LNNodeTest >> testPrintingPlug [
+
+	self assert: LNPlug new printString equals: '/PlugNode'
 ]
 
 { #category : #tests }
