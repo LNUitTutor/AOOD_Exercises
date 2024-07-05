@@ -53,6 +53,16 @@ DieHandle >> maxValue [
 	^ dice inject: 0 into: [ :s :d | s + d faces ]
 ]
 
+{ #category : #printing }
+DieHandle >> printOn: aStream [
+
+	aStream nextPutAll: '[ '.
+	dice do: [ :die |
+		die faces printOn: aStream.
+		aStream nextPut: Character space ].
+	aStream nextPut: $]
+]
+
 { #category : #action }
 DieHandle >> roll [
 
