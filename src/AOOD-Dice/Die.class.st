@@ -15,6 +15,15 @@ Die class >> withFaces: anInteger [
 		  yourself
 ]
 
+{ #category : #arithmetic }
+Die >> + aDie [
+
+	^ DieHandle new
+		  addDie: self;
+		  addDie: aDie;
+		  yourself
+]
+
 { #category : #accessing }
 Die >> faces [
 
