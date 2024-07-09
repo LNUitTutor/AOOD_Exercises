@@ -20,6 +20,12 @@ EConstant class >> value: anInteger [
 	^ self new value: anInteger
 ]
 
+{ #category : #visiting }
+EConstant >> acceptVisitor: aVisitor [
+
+	aVisitor visitConstant: self
+]
+
 { #category : #'public access' }
 EConstant >> evaluateWith: anObject [
 

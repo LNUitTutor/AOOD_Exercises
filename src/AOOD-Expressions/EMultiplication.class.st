@@ -4,6 +4,12 @@ Class {
 	#category : #'AOOD-Expressions'
 }
 
+{ #category : #visiting }
+EMultiplication >> acceptVisitor: aVisitor [
+
+	aVisitor visitMultiplication: self
+]
+
 { #category : #'public access' }
 EMultiplication >> evaluateWith: aDictionary [
 

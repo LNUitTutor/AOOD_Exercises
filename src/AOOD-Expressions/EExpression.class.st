@@ -4,6 +4,12 @@ Class {
 	#category : #'AOOD-Expressions'
 }
 
+{ #category : #visiting }
+EExpression >> acceptVisitor: aVisitor [
+
+	^ self subclassResponsibility
+]
+
 { #category : #'public access' }
 EExpression >> evaluateWith: anObject [
 

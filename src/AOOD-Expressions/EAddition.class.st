@@ -4,6 +4,12 @@ Class {
 	#category : #'AOOD-Expressions'
 }
 
+{ #category : #visiting }
+EAddition >> acceptVisitor: aVisitor [
+
+	aVisitor visitAddition: self
+]
+
 { #category : #'public access' }
 EAddition >> evaluateWith: aDictionary [
 
