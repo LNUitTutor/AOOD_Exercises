@@ -7,9 +7,21 @@ Class {
 	#category : #'AOOD-Expressions'
 }
 
+{ #category : #visiting }
+EVariable >> acceptVisitor: aVisitor [
+
+	^ aVisitor visitVariable: self
+]
+
 { #category : #action }
 EVariable >> evaluateWith:  aBindingDictionary [
     ^ aBindingDictionary at: id
+]
+
+{ #category : #accessing }
+EVariable >> id [
+
+	^ id
 ]
 
 { #category : #accessing }
