@@ -5,6 +5,26 @@ Class {
 }
 
 { #category : #tests }
+DieHandleTest >> testAddingHandleAndDice [
+
+	| hd hd1 hd2 |
+	hd := DieHandle new
+		       addDie: (Die withFaces: 20);
+		       addDie: (Die withFaces: 20);
+		       addDie: (Die withFaces: 10);
+		       yourself.
+	hd1 := hd + (Die withFaces: 10).
+	hd2 := hd1 + (Die withFaces: 6).
+	self assert: hd diceNumber equals: 3.
+	self assert: hd1 diceNumber equals: 4.
+	self assert: hd2 diceNumber equals: 5.
+	self assert: (hd2 dice count: [ :x | x faces = 20]) equals: 2.
+	self assert: (hd2 dice count: [ :x | x faces = 10]) equals: 2.
+	self assert: hd1 maxValue equals: hd maxValue + 10.
+	self assert: hd2 maxValue equals: hd1 maxValue + 6.
+]
+
+{ #category : #tests }
 DieHandleTest >> testAddingTwiceTheSameDice [
 
 	| handle |

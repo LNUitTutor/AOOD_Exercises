@@ -17,7 +17,7 @@ DieTest >> testAddTwoDice [
 DieTest >> testAddingADieAndHandle [
 
 	| hd |
-	hd := (Die withFaces: 6) + (DieHandle new addDie: 6; yourself).
+	hd := (Die withFaces: 6) + (DieHandle new addDie: (Die withFaces: 6); yourself).
 	self assert: hd diceNumber equals: 2.
 	self assert: hd maxValue equals: 12
 ]

@@ -16,12 +16,13 @@ Die class >> withFaces: anInteger [
 ]
 
 { #category : #arithmetic }
-Die >> + aDie [
+Die >> + aDicable [
 
-	^ DieHandle new
+	"^ DieHandle new
 		  addDie: self;
 		  addDie: aDie;
-		  yourself
+		  yourself"
+	^ aDicable sumWithDie: self
 ]
 
 { #category : #accessing }
@@ -56,4 +57,19 @@ Die >> printOn: aStream [
 Die >> roll [
 
 	^ self faces atRandom
+]
+
+{ #category : #private }
+Die >> sumWithDie: aDie [
+
+	^ DieHandle new
+		  addDie: self;
+		  addDie: aDie;
+		  yourself
+]
+
+{ #category : #private }
+Die >> sumWithHandle: aDieHandle [
+
+	^ aDieHandle sumWithDie: self
 ]
