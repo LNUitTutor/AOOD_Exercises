@@ -7,7 +7,7 @@ Class {
 { #category : #visiting }
 EMultiplication >> acceptVisitor: aVisitor [
 
-	aVisitor visitMultiplication: self
+	^ aVisitor visitMultiplication: self
 ]
 
 { #category : #'public access' }

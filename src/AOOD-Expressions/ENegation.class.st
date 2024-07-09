@@ -16,13 +16,19 @@ ENegation class >> expression: anExpression [
 { #category : #visiting }
 ENegation >> acceptVisitor: aVisitor [
 
-	aVisitor visitNegation: self
+	^ aVisitor visitNegation: self
 ]
 
 { #category : #'public access' }
 ENegation >> evaluateWith: aDictionary [
 
 	^ (expression evaluateWith: aDictionary) negated
+]
+
+{ #category : #accessing }
+ENegation >> expression [
+
+	^ expression
 ]
 
 { #category : #accessing }

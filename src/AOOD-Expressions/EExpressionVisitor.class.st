@@ -5,12 +5,6 @@ Class {
 }
 
 { #category : #'public access' }
-EExpressionVisitor >> evaluate: anExpression [
-
-	^ self subclassResponsibility
-]
-
-{ #category : #'public access' }
 EExpressionVisitor >> visitAddition: anAddition [
 
 	^ self subclassResponsibility

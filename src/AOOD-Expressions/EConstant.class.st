@@ -23,7 +23,7 @@ EConstant class >> value: anInteger [
 { #category : #visiting }
 EConstant >> acceptVisitor: aVisitor [
 
-	aVisitor visitConstant: self
+	^ aVisitor visitConstant: self
 ]
 
 { #category : #'public access' }
@@ -42,6 +42,12 @@ EConstant >> polishPrintOn: aStream [
 EConstant >> printOn: aStream [
 
 	value printOn: aStream
+]
+
+{ #category : #accessing }
+EConstant >> value [
+
+	^ value
 ]
 
 { #category : #accessing }

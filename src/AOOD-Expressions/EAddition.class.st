@@ -7,7 +7,7 @@ Class {
 { #category : #visiting }
 EAddition >> acceptVisitor: aVisitor [
 
-	aVisitor visitAddition: self
+	^ aVisitor visitAddition: self
 ]
 
 { #category : #'public access' }
