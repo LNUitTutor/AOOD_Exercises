@@ -29,6 +29,16 @@ EBinaryExpression >> operatorString [
 ]
 
 { #category : #printing }
+EBinaryExpression >> polishPrintOn: aStream [
+
+	aStream nextPutAll: self operatorString.
+	left polishPrintOn: aStream.
+	aStream nextPut: Character space.
+	right polishPrintOn: aStream
+
+]
+
+{ #category : #printing }
 EBinaryExpression >> printOn: aStream [
 
 	aStream nextPutAll: '( '.

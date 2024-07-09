@@ -32,6 +32,13 @@ ENegation >> negated [
 ]
 
 { #category : #printing }
+ENegation >> polishPrintOn: aStream [
+
+	aStream nextPutAll: '- 0 '.
+	expression printOn: aStream
+]
+
+{ #category : #printing }
 ENegation >> printOn: aStream [
 
 	aStream nextPutAll: '- '.

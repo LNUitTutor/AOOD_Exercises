@@ -19,6 +19,12 @@ EVariable >> id: aSymbol [
 ]
 
 { #category : #printing }
+EVariable >> polishPrintOn: aStream [
+
+	self printOn: aStream
+]
+
+{ #category : #printing }
 EVariable >> printOn: aStream [
 
 	aStream nextPutAll: id asString

@@ -27,6 +27,12 @@ EConstant >> evaluateWith: anObject [
 ]
 
 { #category : #printing }
+EConstant >> polishPrintOn: aStream [
+
+	self printOn: aStream
+]
+
+{ #category : #printing }
 EConstant >> printOn: aStream [
 
 	value printOn: aStream
